@@ -1,11 +1,13 @@
 from django.conf.urls.defaults import patterns, include, url
+from . import views
+from django.views.generic.simple import direct_to_template
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'^', include('lavender.flashbang.urls')),
+	(r'blog/$', views.display_blog),
     # Examples:
     # url(r'^$', 'lavender.views.home', name='home'),
     # url(r'^lavender/', include('lavender.foo.urls')),
