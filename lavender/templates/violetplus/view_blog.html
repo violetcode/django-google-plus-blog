@@ -7,15 +7,15 @@
 		{% for post in posts %}
 			<div><p>{{post.object.content|safe}}</p>
 				{% for att in post.object.attachments %}
-					<h2>{{att.displayName}}</h2>
+					<h2>{{att.displayName|safe}}</h2>
 					{% if att.objectType == "photo" %}
-					{{att.image}}
+					<img src="{{att.image.url|safe}}" />
 					{% endif %}
 					{% if att.objectType == "video" %}
-					{{att.embed}}
+					<embed src="{{att.embed.url|safe}}" />
 					{% endif %}
 					{% if att.objectType == "article" %}
-					<p>{{att.content}}</p>
+					<p>{{att.content|safe}}</p>
 					{% endif %}
 				{% endfor %}
 			</div><br/>
