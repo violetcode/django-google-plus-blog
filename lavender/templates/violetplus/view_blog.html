@@ -9,10 +9,10 @@
 				{% for att in post.object.attachments %}
 					<h2>{{att.displayName|safe}}</h2>
 					{% if att.objectType == "photo" %}
-					<img src="{{att.image.url|safe}}" />
+					<img src="{{att.fullImage.url}}" />
 					{% endif %}
 					{% if att.objectType == "video" %}
-					<embed src="{{att.embed.url|safe}}" />
+					<embed src="{{att.embed.url}}" />
 					{% endif %}
 					{% if att.objectType == "article" %}
 					<p>{{att.content|safe}}</p>
