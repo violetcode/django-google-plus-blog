@@ -5,7 +5,20 @@
 	<body>
 		<h1> It worked! </h1>
 		{% for post in posts %}
-			<div>{{post.object.content|safe}}</div>
+			<div><p>{{post.object.content|safe}}</p>
+				{% for att in post.object.attachments %}
+					<h2>{{att.displayName}}</h2>
+					{% if att.objectType == "photo" %}
+					{{att.image}}
+					{% endif %}
+					{% if att.objectType == "video" %}
+					{{att.embed}}
+					{% endif %}
+					{% if att.objectType == "article" %}
+					<p>{{att.content}}</p>
+					{% endif %}
+				{% endfor %}
+			</div><br/>
 		{% endfor %}
 	</body>
 </html>
