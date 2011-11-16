@@ -1,6 +1,6 @@
 import urllib2
 import json
-import apiclient
+from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
 
@@ -9,7 +9,7 @@ USER_ID = "100389519879266040369"
 
 def fetch_g_plus():    
 	http = httplib2.Http()
-	service = apiclient.discovery.build('plus', 'v1', developerKey=API_KEY, http=http) 
+	service = build('plus', 'v1', developerKey=API_KEY, http=http) 
 
 	activities = service.activities()
 	request = activities.list(userId=USER_ID,
