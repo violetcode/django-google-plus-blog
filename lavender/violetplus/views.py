@@ -18,7 +18,7 @@ def fetch_g_plus():
 	activities_doc = request.execute()
 	results = []
 	if 'items' in activities_doc:
-		for activity in activities_document['items']:
+		for activity in activities_doc['items']:
 			results.append(activity)
 
 	return results
