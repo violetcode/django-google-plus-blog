@@ -5,7 +5,7 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'^', include('lavender.flashbang.urls')),
+	(r'^', include('lavender.violetplus.urls')),
     # Examples:
     # url(r'^$', 'lavender.views.home', name='home'),
     # url(r'^lavender/', include('lavender.foo.urls')),
