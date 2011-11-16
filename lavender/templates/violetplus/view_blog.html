@@ -12,7 +12,7 @@
 					<img src="{{att.fullImage.url}}" />
 					{% endif %}
 					{% if att.objectType == "video" %}
-					<embed src="{{att.url|cut:"&autoplay=1"}}" />
+					<embed height=300 width=400 src="{{att.url|cut:"&autoplay=1"}}" />
 					<p>{{att.content|safe}}</p>
 					{% endif %}
 					{% if att.objectType == "article" %}
