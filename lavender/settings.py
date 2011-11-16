@@ -1,3 +1,4 @@
+from unipath import FSPath as Path
 # Django settings for lavender project.
 
 DEBUG = True
@@ -102,11 +103,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'lavender.urls'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+BASE = Path(__file__).absolute().ancestor(1)
+
+TEMPLATE_DIRS = [BASE.child('templates')]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
