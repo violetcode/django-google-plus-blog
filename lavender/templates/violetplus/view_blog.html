@@ -12,8 +12,8 @@
 					<img src="{{att.fullImage.url}}" />
 					{% endif %}
 					{% if att.objectType == "video" %}
-					{{att.embed.url}}
-					<embed src="{{att.embed.url}}" />
+					{{att.url}}
+					<embed src="{{att.url}}" />
 					{% endif %}
 					{% if att.objectType == "article" %}
 					<p>{{att.content|safe}}</p>
