@@ -25,5 +25,5 @@ def fetch_g_plus():
 
 def display_blog(request):
 	posts = fetch_g_plus()
-	context = {'request', request, 'posts': posts}
+	context = {'request': request, 'posts': posts}
 	return render_to_response('violetplus/view_blog.html', context)
