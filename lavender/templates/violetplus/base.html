@@ -3,7 +3,12 @@
 {% block content %}
 
 {% for post in posts %}
-	<div class="entry"><p>{{post.object.content|safe}}</p>
+	<div class="entry">
+		<div class="span5">
+		</div>
+		
+		<div class="span11">
+		<p>{{post.object.content|safe}}</p>
 		{% for att in post.object.attachments %}
 			<h2>{{att.displayName|safe}}</h2>
 			{% if att.objectType == "photo" %}
@@ -17,6 +22,7 @@
 			<p>{{att.content|safe}}</p>
 			{% endif %}
 		{% endfor %}
+		</div>
 	</div>
 {% endfor %}
 
