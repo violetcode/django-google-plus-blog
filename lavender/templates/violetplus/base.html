@@ -14,15 +14,19 @@
 			<div>
 			{% for att in post.object.attachments %}
 				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
+				
 				{% if att.objectType == "photo" %}
 				<img src="{{att.fullImage.url}}" />
 				{% endif %}
+				
 				{% if att.objectType == "video" %}
 				<embed height=300 width=400 src="{{att.url|cut:"&autoplay=1"}}" />
 				{% endif %}
+				
 				{% if att.objectType == "article" %}
 				<blockquote><p>{{att.content|safe}}</p></blockquote>
 				{% endif %}
+				
 			{% endfor %}
 			</div>
 		</div>
