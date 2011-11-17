@@ -3,7 +3,7 @@ import json
 from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
-import datetime.datetime
+from datetime import datetime
 
 USER_ID = "100389519879266040369"
 API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
