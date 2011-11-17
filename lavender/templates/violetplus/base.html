@@ -7,7 +7,7 @@
 		<div class="span11">
 			<div>
 				<p>{{post.object.content|safe}}</p>
-				<p><em>Posted: {{post.published|date:"F j, Y P"}}</em></p>
+				<p><em>Posted: {{post.published|date:"F j, Y"}}</em></p>
 			</div>
 			<div>
 			{% for att in post.object.attachments %}
