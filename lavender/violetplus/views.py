@@ -20,7 +20,7 @@ def fetch_g_plus():
 	results = []
 	if 'items' in activities_doc:
 		for activity in activities_doc['items']:
-			date_published = activity["published"]
+			date_published = activity["published"].strip(".000Z")
 			date = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
 			activity["published"] = date
 			results.append(activity)
