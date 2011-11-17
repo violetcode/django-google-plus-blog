@@ -7,7 +7,7 @@ from django.views.generic.simple import direct_to_template
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'blog/$', views.display_blog),
+	url(r'blog/$', views.display_blog),
     # Examples:
     # url(r'^$', 'lavender.views.home', name='home'),
     # url(r'^lavender/', include('lavender.foo.urls')),
