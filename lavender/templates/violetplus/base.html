@@ -5,20 +5,25 @@
 {% for post in posts %}
 	<div class="entry row">
 		<div class="span11">
-		<p>{{post.object.content|safe}}</p>
-		{% for att in post.object.attachments %}
-			<h2>{{att.displayName|safe}}</h2>
-			{% if att.objectType == "photo" %}
-			<img src="{{att.fullImage.url}}" />
-			{% endif %}
-			{% if att.objectType == "video" %}
-			<embed height=300 width=400 src="{{att.url|cut:"&autoplay=1"}}" />
-			<p>{{att.content|safe}}</p>
-			{% endif %}
-			{% if att.objectType == "article" %}
-			<p>{{att.content|safe}}</p>
-			{% endif %}
-		{% endfor %}
+			<div>
+				<p>{{post.object.content|safe}}</p>
+				<p><em>Posted: {{post.published|date:"F j, Y P"}}</em></p>
+			</div>
+			<div>
+		{	% for att in post.object.attachments %}
+				<h5>{{att.displayName|safe}}</h5>
+				{% if att.objectType == "photo" %}
+				<img src="{{att.fullImage.url}}" />
+				{% endif %}
+				{% if att.objectType == "video" %}
+				<embed height=300 width=400 src="{{att.url|cut:"&autoplay=1"}}" />
+				<blockquote><p>{{att.content|safe}}</p></blockquote>
+				{% endif %}
+				{% if att.objectType == "article" %}
+				<blockquote><p>{{att.content|safe}}</p></blockquote>
+				{% endif %}
+			{% endfor %}
+			</div>
 		</div>
 	</div>
 {% endfor %}
