@@ -10,7 +10,7 @@
 				<p><em>Posted: {{post.published|date:"F j, Y P"}}</em></p>
 			</div>
 			<div>
-		{	% for att in post.object.attachments %}
+			{% for att in post.object.attachments %}
 				<h5>{{att.displayName|safe}}</h5>
 				{% if att.objectType == "photo" %}
 				<img src="{{att.fullImage.url}}" />
