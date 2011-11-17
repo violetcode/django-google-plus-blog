@@ -11,7 +11,7 @@
 			</div>
 			<div>
 			{% for att in post.object.attachments %}
-				<a href={{att.url}}><h5>{{att.displayName|safe}}</h5></a>
+				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
 				{% if att.objectType == "photo" %}
 				<img src="{{att.fullImage.url}}" />
 				{% endif %}
