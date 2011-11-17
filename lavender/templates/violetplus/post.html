@@ -12,7 +12,7 @@
 			</div>
 			
 			<div>
-			{% for att in post.attachments %}
+			{% for att in post.object.attachments %}
 			
 				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
 				
@@ -24,7 +24,7 @@
 				<embed height=300 width=500 src="{{att.url|cut:"&autoplay=1"}}" />
 				{% endif %}
 				
-				{% if att.objectType == "article" %}
+				{% if att.objectType == "note" %}
 				<blockquote><p>{{att.content|safe}}</p></blockquote>
 				{% endif %}
 				
