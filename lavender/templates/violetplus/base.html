@@ -4,10 +4,6 @@
 
 {% for post in posts %}
 	<div class="entry row">
-		<div class="span5">
-			Test
-		</div>
-		
 		<div class="span11">
 		<p>{{post.object.content|safe}}</p>
 		{% for att in post.object.attachments %}
