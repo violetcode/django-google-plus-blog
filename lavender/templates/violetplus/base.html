@@ -5,10 +5,12 @@
 {% for post in posts %}
 	<article class="row">
 		<div class="span11">
+			<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+
 			<div>
 				<p>{{post.object.content|safe}}</p>
-				<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 			</div>
+			
 			<div>
 			{% for att in post.object.attachments %}
 				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
