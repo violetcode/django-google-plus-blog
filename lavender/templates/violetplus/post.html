@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}/ blog / post{% endblock %}
+
+{% block content %}
+	<article class="row">
+		<div class="span11">
+			<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+
+			<div>
+				<p>{{post.object.content|safe}}</p>
+			</div>
+			
+			<div>
+			{% for att in post.attachments %}
+			
+				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
+				
+				{% if att.objectType == "photo" %}
+				<img src="{{att.fullImage.url}}" />
+				{% endif %}
+				
+				{% if att.objectType == "video" %}
+				<embed height=300 width=500 src="{{att.url|cut:"&autoplay=1"}}" />
+				{% endif %}
+				
+				{% if att.objectType == "article" %}
+				<blockquote><p>{{att.content|safe}}</p></blockquote>
+				{% endif %}
+				
+			{% endfor %}
+			</div>
+		</div>
+	</article>
+{% endblock %}
