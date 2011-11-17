@@ -26,7 +26,7 @@ def fetch_g_plus_activities(limit):
 			convert_published_to_datetime(activity)
 	return activities_doc
 
-def fetch_g_plus_actvitity(activ_id):
+def fetch_g_plus_activity(activ_id):
 	activities_resource = service.activities()
 	activities_document = activities_resource.get(activityId=activ_id).execute()
 	if 'items' in activities_document:
