@@ -9,6 +9,11 @@
 
 			<div>
 				<p>{{post.object.content|safe}}</p>
+				<ul>
+					<li>{{post.object.replies.totalItems}} comments</li>
+					<li>{{post.object.plusoners.totalItems}} +1's</li>
+					<li>{{post.object.resharers.totalItems}} shares</li>
+				</ul>
 			</div>
 			
 			<div>
