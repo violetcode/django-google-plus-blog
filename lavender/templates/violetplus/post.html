@@ -24,7 +24,7 @@
 				<embed height=300 width=500 src="{{att.url|cut:"&autoplay=1"}}" />
 				{% endif %}
 				
-				{% if att.objectType == "note" %}
+				{% if att.objectType == "article" %}
 				<blockquote><p>{{att.content|safe}}</p></blockquote>
 				{% endif %}
 				
