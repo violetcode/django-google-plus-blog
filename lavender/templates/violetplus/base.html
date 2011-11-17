@@ -17,7 +17,6 @@
 				{% endif %}
 				{% if att.objectType == "video" %}
 				<embed height=300 width=400 src="{{att.url|cut:"&autoplay=1"}}" />
-				<blockquote><p>{{att.content|safe}}</p></blockquote>
 				{% endif %}
 				{% if att.objectType == "article" %}
 				<blockquote><p>{{att.content|safe}}</p></blockquote>
