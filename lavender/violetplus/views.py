@@ -3,6 +3,7 @@ import json
 from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
+import datetime.datetime
 
 USER_ID = "100389519879266040369"
 API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
@@ -19,6 +20,9 @@ def fetch_g_plus():
 	results = []
 	if 'items' in activities_doc:
 		for activity in activities_doc['items']:
+			date_published = activity["published"]
+			date = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
+			activity["published"] = date
 			results.append(activity)
 
 	return results
