@@ -3,11 +3,11 @@
 {% block content %}
 
 {% for post in posts %}
-	<div class="entry row">
+	<article class="row">
 		<div class="span11">
 			<div>
 				<p>{{post.object.content|safe}}</p>
-				<p><em>Posted: {{post.published|date:"F j, Y"}}</em></p>
+				<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 			</div>
 			<div>
 			{% for att in post.object.attachments %}
@@ -24,7 +24,7 @@
 			{% endfor %}
 			</div>
 		</div>
-	</div>
+	</article>
 {% endfor %}
 
 {% endblock %}
