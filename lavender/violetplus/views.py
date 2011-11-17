@@ -39,7 +39,7 @@ def display_blog(request):
 	context = {'request': request, 'posts': posts}
 	return render_to_response('violetplus/base.html', context)
 
-def display_post(request, activ_id):
-	posts = fetch_g_plus_activity(activ_id)
+def display_post(request, act_id):
+	posts = fetch_g_plus_activity(act_id)
 	context = {'request': request, 'posts': posts}
 	return render_to_response('violetplus/base.html', context)
