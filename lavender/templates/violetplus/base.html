@@ -7,11 +7,13 @@
 {% for post in posts.items %}
 	<article class="row">
 		<div class="span11">
+		
+			<div>
 			<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+			<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="" class="glyph">&#8734;</a></span>
 
 			<div>
 				<p>{{post.object.content|safe}}</p>
-				<a href='/blog/post/{{post.id}}'>See only this post</a>
 			</div>
 			
 			<div>
