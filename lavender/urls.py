@@ -5,7 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^/?$', direct_to_template, {"template": "home.htm"}, name="home"),    
+    url(r'^/?$', direct_to_template, {"template": "home.htm"}, name="home"),
+    url(r'^time/?$', direct_to_template, {"template": "time.htm"}, name="home"),            
 	url(r'^', include('lavender.violetplus.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
