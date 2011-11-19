@@ -15,7 +15,7 @@ def convert_published_to_datetime(activity):
 	date_published = activity["published"].strip(".000Z")
 	activity["published"] = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
 
-def fetch_g_plus_activities(limit):    
+def fetch_g_plus_activities(limit, nextPageToken=None):    
 	activities = service.activities()
 	request = activities.list(userId=USER_ID,
 							  collection='public',
