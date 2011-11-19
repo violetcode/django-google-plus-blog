@@ -1,8 +1,7 @@
-import urllib2
-import json
 from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 from datetime import datetime
 from forms import NextPageForm
 
@@ -51,7 +50,8 @@ def display_blog(request):
 	page_token = posts['nextPageToken']
 	form = NextPageForm(initial={'token':page_token})
 	context = {'request': request, 'posts': posts, 'form': form}
-	return render_to_response('violetplus/base.html', context)
+	return render_to_response('violetplus/base.html', context, 
+		context_instance=RequestContext(request))
 
 def display_post(request, act_id):
 	post = fetch_g_plus_activity(act_id)
