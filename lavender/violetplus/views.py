@@ -41,14 +41,12 @@ def fetch_g_plus_activity(activ_id):
 
 
 def display_blog(request):
+	token = None
 	if request.method == 'POST':
 		submitted_form = NextPageForm(request.POST)
 		if submitted_form.is_valid():
 			token = submitted_form.cleaned_data['token']
-	if token:
-		posts = fetch_g_plus_activities(10, token)
-	else:
-		posts = fetch_g_plus_activities(10)
+	posts = fetch_g_plus_activities(10, token)
 	page_token = posts['nextPageToken']
 	form = NextPageForm(initial={'token':page_token})
 	context = {'request': request, 'posts': posts, 'form': form}
