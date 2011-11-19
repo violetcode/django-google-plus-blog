@@ -4,7 +4,7 @@ from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
 from datetime import datetime
-import forms
+from forms import NextPageForm
 
 USER_ID = "100389519879266040369"
 API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
