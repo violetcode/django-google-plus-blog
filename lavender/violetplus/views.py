@@ -43,7 +43,9 @@ def fetch_g_plus_activity(activ_id):
 def display_blog(request):
 	if request.method == 'POST':
 		submitted_form = NextPageForm(request.POST)
-		token = submitted_form.cleaned_data['token']
+		if submitted_form.is_valid():
+			token = submitted_form.cleaned_data['token']
+	if token:
 		posts = fetch_g_plus_activities(10, token)
 	else:
 		posts = fetch_g_plus_activities(10)
