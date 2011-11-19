@@ -11,9 +11,10 @@
 				<div class="span3">
 					<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 					<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
-					<p>{{post.object.plusoners.totalItems}} +1{{post.object.plusoners.totalItems|pluralize}}</p>
-					<p>{{post.object.resharers.totalItems}} share{{post.object.resharers.totalItems|pluralize}}</p>
-					<p>{{post.object.replies.totalItems}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}
+					<p>{{post.object.plusoners.totalItems}} +1{{post.object.plusoners.totalItems|pluralize}}
+					<br/>{{post.object.resharers.totalItems}} share{{post.object.resharers.totalItems|pluralize}}
+					<br/>{{post.object.replies.totalItems}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}
+					</p>
 				</div>
 				<div class="span11">
 					<div>
