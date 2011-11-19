@@ -47,9 +47,11 @@ def display_blog(request):
 		if submitted_form.is_valid():
 			token = submitted_form.cleaned_data['token']
 	posts = fetch_g_plus_activities(10, token)
+	context = {'request': request, 'posts': posts}
 	page_token = posts['nextPageToken']
-	form = NextPageForm(initial={'token':page_token})
-	context = {'request': request, 'posts': posts, 'form': form}
+	if page_token:
+		form = NextPageForm(initial={'token':page_token})
+		context['form'] = form
 	return render_to_response('violetplus/base.html', context, 
 		context_instance=RequestContext(request))
 
