@@ -16,13 +16,11 @@
 					<p>{{post.object.replies.totalItems}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}
 				</div>
 				<div class="span11">
-					
-					
 					<div>
 						<p>{{post.object.content|safe}}</p>
 					</div>
 					
-					<div>
+					<div class="attachments">
 					{% for att in post.object.attachments %}
 						<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
 						
