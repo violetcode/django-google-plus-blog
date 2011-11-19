@@ -10,7 +10,7 @@
 		
 			<div>
 			<p class="datetime">{{post.published|date:"F j, Y"}}</p>
-			<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="" class="glyph">&#8734;</a></span>
+			<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
 			</div>
 			
 			<div>
@@ -39,5 +39,10 @@
 		</div>
 	</article>
 {% endfor %}
+<form method="POST" action="">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="Older" />
+</form>
 
 {% endblock %}

@@ -4,6 +4,7 @@ from apiclient.discovery import build
 import httplib2
 from django.shortcuts import render_to_response
 from datetime import datetime
+import forms
 
 USER_ID = "100389519879266040369"
 API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
@@ -15,11 +16,17 @@ def convert_published_to_datetime(activity):
 	date_published = activity["published"].strip(".000Z")
 	activity["published"] = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
 
-def fetch_g_plus_activities(limit, nextPageToken=None):    
+def fetch_g_plus_activities(limit, nextPageToken=None):  
 	activities = service.activities()
-	request = activities.list(userId=USER_ID,
+	if not nextPageToken:
+		request = activities.list(userId=USER_ID,
 							  collection='public',
 							  maxResults=limit)
+	else:
+		request = activities.list(userId=USER_ID,
+								  collection='public',
+								  maxResults=limit,
+								  pageToken=nextPageToken)
 	activities_doc = request.execute()
 	if 'items' in activities_doc:
 		for activity in activities_doc['items']:
@@ -35,8 +42,15 @@ def fetch_g_plus_activity(activ_id):
 
 
 def display_blog(request):
-	posts = fetch_g_plus_activities(10)
-	context = {'request': request, 'posts': posts}
+	if request.method == 'POST':
+		submitted_form = NextPageForm(request.POST)
+		token = submitted_form.cleaned_data['token']
+		posts = fetch_g_plus_activities(10, token)
+	else:
+		posts = fetch_g_plus_activities(10)
+	page_token = posts.nextPageToken
+	form = NextPageForm(token=page_token)
+	context = {'request': request, 'posts': posts, 'form': form}
 	return render_to_response('violetplus/base.html', context)
 
 def display_post(request, act_id):
