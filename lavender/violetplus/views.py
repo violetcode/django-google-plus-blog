@@ -49,7 +49,7 @@ def display_blog(request):
 	else:
 		posts = fetch_g_plus_activities(10)
 	page_token = posts['nextPageToken']
-	form = NextPageForm(token=page_token)
+	form = NextPageForm(initial={'token':page_token})
 	context = {'request': request, 'posts': posts, 'form': form}
 	return render_to_response('violetplus/base.html', context)
 
