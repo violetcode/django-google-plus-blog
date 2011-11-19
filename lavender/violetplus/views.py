@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from datetime import datetime
 from forms import NextPageForm
+import re
 
 USER_ID = "100389519879266040369"
 API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
