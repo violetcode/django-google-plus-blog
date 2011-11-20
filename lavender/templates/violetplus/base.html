@@ -14,8 +14,10 @@
 				<div class="span11">
 					<div>
 						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
-						<h2>{{post.title}}</h2>
-						<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
+						<div>
+							<h2>{{post.title}}</h2>
+							<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
+						</div>
 						<p>{{post.object.content|safe}}</p>
 					</div>
 					
