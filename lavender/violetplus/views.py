@@ -45,7 +45,8 @@ def fetch_g_plus_activity(activ_id):
 	activities_resource = service.activities()
 	activities_document = activities_resource.get(activityId=activ_id).execute()
 	if 'items' in activities_document:
-		modify_activity(activities_document['items'])
+		for activity in activities_doc['items']:
+			modify_activity(activity)
 	return activities_document
 
 
