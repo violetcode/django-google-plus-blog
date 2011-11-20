@@ -4,21 +4,17 @@
 
 {% block content %}
 	<article class="row">
-		<div class="span11">
-			<p class="datetime">{{post.published|date:"F j, Y"}}</p>
-
+		<div class="offset3 span11">
 			<div>
+				<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+				<div>
+					<h2>{{post.title}}</h2>
+				</div>
 				<p>{{post.object.content|safe}}</p>
-				<ul>
-					<li>{{post.object.replies.totalItems}} comments</li>
-					<li>{{post.object.plusoners.totalItems}} +1's</li>
-					<li>{{post.object.resharers.totalItems}} shares</li>
-				</ul>
 			</div>
 			
-			<div>
+			<div class="attachments">
 			{% for att in post.object.attachments %}
-			
 				<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
 				
 				{% if att.objectType == "photo" %}
@@ -34,6 +30,9 @@
 				{% endif %}
 				
 			{% endfor %}
+			</div>
+			<div>
+				<p>{{post.object.plusoners.totalItems|default:"No"}} +1{{post.object.plusoners.totalItems|pluralize}}<br/>{{post.object.resharers.totalItems|default:"No"}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems|default:"No"}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
 			</div>
 		</div>
 	</article>
