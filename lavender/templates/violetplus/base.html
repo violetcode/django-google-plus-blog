@@ -9,15 +9,12 @@
 		<div class="span14">
 			<div class="row container">
 				<div class="span3 sidebar">
-					<p class="datetime">{{post.published|date:"F j, Y"}}</p>
-					<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
-					<p>{{post.object.plusoners.totalItems}} +1{{post.object.plusoners.totalItems|pluralize}}
-					<br/>{{post.object.resharers.totalItems}} share{{post.object.resharers.totalItems|pluralize}}
-					<br/>{{post.object.replies.totalItems}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}
-					</p>
+					<p>{{post.object.plusoners.totalItems}} +1{{post.object.plusoners.totalItems|pluralize}}<br/>{{post.object.resharers.totalItems}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
 				</div>
 				<div class="span11">
 					<div>
+						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+						<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
 						<h4>{{post.title}}</h4>
 						<p>{{post.object.content|safe}}</p>
 					</div>
