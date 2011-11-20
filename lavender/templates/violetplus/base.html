@@ -45,11 +45,15 @@
 	</article>
 {% endfor %}
 {% if form %}
-<form method="POST" action="">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit" value="Older >" />
-</form>
+<div class="row">
+	<div class="offset3 span11">
+	<form method="POST" action="">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value="Older >" />
+	</form>
+	</div>
+</div>
 {% endif %}
 
 {% endblock %}
