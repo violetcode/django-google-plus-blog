@@ -53,11 +53,16 @@
 						
 					{% endfor %}
 					</div>
-					{% if post.type == "link" %}
+					
 					<div>
+					{% if post.type == "link" %}
 						<p>{{post.object.content|safe}}</p>
-					</div>
 					{% endif %}
+					{% if post.provider.title == "Mobile" %}
+						<p><em>Posted from Google+ Mobile</em></p>
+					{% endif %}
+					</div>
+					
 				</div>
 			</div>
 		</div>
