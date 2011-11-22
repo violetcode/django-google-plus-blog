@@ -27,8 +27,10 @@
 					{% for att in post.object.attachments %}
 						{% if post.type == "link" and forloop.first %}
 						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
-						<h2><a href={{att.url}}>{{att.displayName|safe}}</a></h2>
-						<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
+						<div>
+							<h2><a href={{att.url}}>{{att.displayName|safe}}</a></h2>
+							<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
+						</div>
 						{% else %}
 						<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
 						{% endif %}
