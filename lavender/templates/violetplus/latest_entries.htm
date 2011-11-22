@@ -10,7 +10,7 @@
 		<ul class="unstyled" id="entry-list">
 	{% else %}
 		<li>
-		<h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
+		<h2><a href="/blog/post/{{post.id}}">{{post.title|truncatewords:12}}</a></h2>
 		<span class="datetime">{{post.published|date:"F j, Y"}}</span>
 		</li>
 	{% endif %}
