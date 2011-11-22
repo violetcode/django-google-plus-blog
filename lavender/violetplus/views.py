@@ -22,6 +22,9 @@ def modify_activity(activity):
 		title = matches.group('title')
 		activity['title'] = title
 		activity["object"]["content"] = title_re.sub("", content)
+		activity["type"] = "article"
+	else:
+		activity["type"] = "link"
 
 
 def fetch_g_plus_activities(limit, nextPageToken=None):  

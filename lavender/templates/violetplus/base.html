@@ -12,6 +12,7 @@
 					<p>{{post.object.plusoners.totalItems|default:"No"}} +1{{post.object.plusoners.totalItems|pluralize}}<br/>{{post.object.resharers.totalItems|default:"No"}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems|default:"No"}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
 				</div>
 				<div class="span11">
+					{% if post.type == "article" %}
 					<div>
 						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 						<div>
@@ -20,10 +21,17 @@
 						</div>
 						<p>{{post.object.content|safe}}</p>
 					</div>
+					{% endif %}
 					
 					<div class="attachments">
 					{% for att in post.object.attachments %}
+						{% if post.type == "link" and forloop.first %}
+						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+						<h2><a href={{att.url}}>{{att.displayName|safe}}</a></h2>
+						<span class="linked-list-permalink"><a href="/blog/post/{{post.id}}" rel="bookmark" title="permalink" class="glyph">&#8734;</a></span>
+						{% else %}
 						<h5><a href={{att.url}}>{{att.displayName|safe}}</a></h5>
+						{% endif %}
 						
 						{% if att.objectType == "photo" %}
 						<img src="{{att.fullImage.url}}" />
@@ -39,6 +47,11 @@
 						
 					{% endfor %}
 					</div>
+					{% if post.type == "link" %}
+					<div>
+						<p>{{post.object.content|safe}}</p>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
