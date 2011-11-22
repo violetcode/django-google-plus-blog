@@ -7,7 +7,7 @@
 		<p class="more"><a href="/blog/post/{{post.id}}">Read more</a></p>
 		
 		<h1>Recent Articles</h1>
-		<ul class="unstyled" id="entry-list">
+		{% autoescape off %}<ul class="unstyled" id="entry-list">{% endautoescape %}
 	{% else %}
 		<li>
 		<p class="datetime">{{post.published|date:"F j, Y"}}</p>
