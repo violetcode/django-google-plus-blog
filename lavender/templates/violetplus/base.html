@@ -22,8 +22,12 @@
 						<p>{{post.object.content|safe}}</p>
 					</div>
 					{% endif %}
-					
+
+					{% if post.type == "article" %}
 					<div class="attachments">
+					{% else %}
+					<div>
+					{% endif %}
 					{% for att in post.object.attachments %}
 						{% if post.type == "link" and forloop.first %}
 						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
