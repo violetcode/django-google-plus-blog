@@ -30,9 +30,11 @@ new TWTR.Widget({
 }).render().setUser('violet_code').start();
 </script> -->
 
-<div class="span10 offset3">
-	{% load plus %}
-	{% render_latest_blog_entries 1 %}
+<div class="row">
+	<div class="span10 offset3">
+		{% load plus %}
+		{% render_latest_blog_entries 1 %}
+	</div>
 </div>
 
 {% endblock %}
