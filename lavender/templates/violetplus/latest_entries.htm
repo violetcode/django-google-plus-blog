@@ -1,6 +1,14 @@
 {% for post in posts.items %}
-    <p class="datetime">{{post.published|date:"F j, Y"}}</p>
-    <h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
-    <p>{{post.object.content|safe|truncatewords:100}}</p>
-    <p class="more"><a href="/blog/post/{{post.id}}">Read more</a></p>
+
+	{% if forloop.first %}
+		<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+		<h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
+		<p>{{post.object.content|safe|truncatewords:100}}</p>
+		<p class="more"><a href="/blog/post/{{post.id}}">Read more</a></p>
+		<ul class="unstyled entry-list">
+	{% else %}
+		<p class="datetime">{{post.published|date:"F j, Y"}}</p>
+		<h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
+	{% endif %}
+		</ul>  
 {% endfor %}

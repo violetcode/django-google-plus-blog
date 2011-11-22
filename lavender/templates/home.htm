@@ -2,38 +2,11 @@
 
 {% block content %}
 <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-<!-- <script>
-new TWTR.Widget({
-  version: 2,
-  type: 'profile',
-  rpp: 10,
-  interval: 30000,
-  width: 300,
-  height: 600,
-  theme: {
-    shell: {
-      background: '#333333',
-      color: '#ffffff'
-    },
-    tweets: {
-      background: '#000000',
-      color: '#ffffff',
-      links: '#4aed05'
-    }
-  },
-  features: {
-    scrollbar: false,
-    loop: false,
-    live: false,
-    behavior: 'all'
-  }
-}).render().setUser('violet_code').start();
-</script> -->
 
 <div class="row">
 	<div class="span12 offset2">
 		{% load plus %}
-		{% render_latest_blog_entries 1 %}
+		{% render_latest_blog_entries 11 %}
 	</div>
 </div>
 
