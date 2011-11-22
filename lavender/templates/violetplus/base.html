@@ -12,7 +12,7 @@
 					<p>{{post.object.plusoners.totalItems|default:"No"}} +1{{post.object.plusoners.totalItems|pluralize}}<br/>{{post.object.resharers.totalItems|default:"No"}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems|default:"No"}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
 				</div>
 				<div class="span11">
-					{% if post.type == "article" %}
+					{% if post.type == "article" or post.provider.title == "Mobile" %}
 					<div>
 						<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 						<div>
@@ -55,7 +55,7 @@
 					</div>
 					
 					<div>
-					{% if post.type == "link" %}
+					{% if post.type == "link" and not post.provider.title == "Mobile" %}
 						<p>{{post.object.content|safe}}</p>
 					{% endif %}
 					{% if post.provider.title == "Mobile" %}
