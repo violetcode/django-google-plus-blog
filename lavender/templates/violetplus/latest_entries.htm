@@ -1,0 +1,6 @@
+{% for post in posts.items %}
+    <p class="datetime">{{post.published|date:"F j, Y"}}</p>
+    <h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
+    <p>{{post.object.content|safe}}</p>
+    <p class="more"><a href="/blog/post/{{post.id}}">Read more</a></p>
+{% endfor %}

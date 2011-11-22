@@ -30,4 +30,7 @@ new TWTR.Widget({
 }).render().setUser('violet_code').start();
 </script> -->
 
+{% load plus %}
+{% render_latest_blog_entries 1 %}
+
 {% endblock %}
