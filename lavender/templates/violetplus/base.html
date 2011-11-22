@@ -9,7 +9,7 @@
 		<div class="span14">
 			<div class="row container">
 				<div class="span3 sidebar">
-					<p><g:plusone size="small" annotation="inline" href="/blog/post/{{post.id}}"></g:plusone><br/>{{post.object.resharers.totalItems|default:"No"}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems|default:"No"}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
+					<p><g:plusone size="small" href="/blog/post/{{post.id}}"></g:plusone><br/>{{post.object.resharers.totalItems|default:"No"}} share{{post.object.resharers.totalItems|pluralize}}<br/>{{post.object.replies.totalItems|default:"No"}} repl{{post.object.replies.totalItems|pluralize:"y,ies"}}</p>
 				</div>
 				<div class="span11">
 					{% if post.type == "article" %}
