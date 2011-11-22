@@ -52,7 +52,7 @@ def fetch_g_plus_activity(activ_id):
 
 
 @register.inclusion_tag('violetplus/latest_entries.htm')
-def render_latest_blog_entries(num, autoescape=None):
+def render_latest_blog_entries(num):
 	token = None
 	posts = fetch_g_plus_activities(num, token)
 	return {'posts': posts}
