@@ -1,10 +1,15 @@
 {% for post in posts.items %}
 
 	{% if forloop.first %}
+	
+	<div id="latest-entry">
 		<p class="datetime">{{post.published|date:"F j, Y"}}</p>
 		<h2><a href="/blog/post/{{post.id}}">{{post.title}}</a></h2>
 		<p>{{post.object.content|safe|truncatewords:100}}</p>
 		<p class="more"><a href="/blog/post/{{post.id}}">Continiue reading &raquo;</a></p>
+		
+		<g:plusone size="small" href="/blog/post/{{post.id}}"></g:plusone>
+	</div>
 		
 		<h2 id="recent-enties">Recent Entries</h2>
 		<ul class="unstyled" id="entry-list">
