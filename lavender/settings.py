@@ -1,5 +1,5 @@
 import djcelery
-import os
+import sys, os
 import platform
 
 djcelery.setup_loader()
@@ -14,15 +14,6 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 CURRENT_DIR   = os.path.dirname(__file__)
 TEMPLATE_DIRS = (os.path.join(CURRENT_DIR, 'templates'),)
-UTILS_ROOT    = os.path.join(CURRENT_DIR, 'utils')
-APPS_ROOT   = os.path.join(CURRENT_DIR, 'apps')
-
-# ==============
-# = PYTHONPATH =
-# ==============
-
-if '/utils' not in ' '.join(sys.path):
-    sys.path.append(UTILS_ROOT)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
