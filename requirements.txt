@@ -12,3 +12,4 @@ Markdown==2.0.3
 django-picklefield
 celery>=2.3.3
 django-celery>=3.0.11
+google-api-python-client>=1.0
