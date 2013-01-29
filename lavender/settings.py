@@ -92,5 +92,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'djcelery',
     'gunicorn',
-    'violetplus',
+    'lavender.violetplus',
 )
