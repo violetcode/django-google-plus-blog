@@ -4,10 +4,10 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from datetime import datetime
 from forms import NextPageForm
-import re
+import os, re
 
-USER_ID = "100389519879266040369"
-API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
+USER_ID = os.environ['USER_ID']
+API_KEY = os.environ['API_KEY']
 
 http = httplib2.Http()
 service = build('plus', 'v1', developerKey=API_KEY, http=http) 
