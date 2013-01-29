@@ -17,7 +17,7 @@ service = build('plus', 'v1', developerKey=API_KEY, http=http)
 
 def modify_activity(activity):
 	published = activity["published"]
-	date_published = activity["published"].strip(".000Z")
+	date_published = re.sub("\.\d*Z$", '', published)
 	activity["published"] = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
 	content = activity["object"]["content"]
 	title_re = re.compile(r'^<b>(?P<title>.*)</b><br /><br />')
