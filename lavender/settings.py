@@ -32,17 +32,9 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
+#DB info injected by Heroku
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 TIME_ZONE = 'America/Los_Angeles'
 LANGUAGE_CODE = 'en-us'
@@ -58,18 +50,15 @@ USE_I18N = True
 USE_L10N = True
 
 
-MEDIA_ROOT = ''
-MEDIA_URL = ''
-STATIC_ROOT = ''
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media/')
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static/')
 STATIC_URL = '/static/'
-ADMIN_MEDIA_PREFIX = '/static/admin/'
-
 STATICFILES_DIRS = ()
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 SECRET_KEY = '0&_@j(t&65w_58u8lcq8&zfjwq5*km73^cd8nl4(fk8_j@o6!l'
@@ -77,7 +66,6 @@ SECRET_KEY = '0&_@j(t&65w_58u8lcq8&zfjwq5*km73^cd8nl4(fk8_j@o6!l'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
