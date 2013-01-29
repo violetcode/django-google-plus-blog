@@ -90,9 +90,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'lavender.urls'
 
-BASE = Path(__file__).absolute().ancestor(1)
-
-TEMPLATE_DIRS = [BASE.child('templates')]
+TEMPLATE_DIRS = (
+    os.path.join(SITE_ROOT, 'templates')
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -106,21 +106,3 @@ INSTALLED_APPS = (
     'gunicorn',
     'violetplus',
 )
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
