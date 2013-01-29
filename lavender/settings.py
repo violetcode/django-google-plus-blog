@@ -1,20 +1,39 @@
 import djcelery
 import os
 import platform
-from unipath import FSPath as Path
 
 djcelery.setup_loader()
 
-BROKER_HOST = "localhost"
-BROKER_PORT = 5672
-BROKER_USER = "guest"
-BROKER_PASSWORD = "guest"
-BROKER_VHOST = "/"
+from django.contrib.messages import constants as messages
 
-# Django settings for lavender project.
+# ===========================
+# = Directory Declaractions =
+# ===========================
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+CURRENT_DIR   = os.path.dirname(__file__)
+TEMPLATE_DIRS = (os.path.join(CURRENT_DIR, 'templates'),)
+UTILS_ROOT    = os.path.join(CURRENT_DIR, 'utils')
+APPS_ROOT   = os.path.join(CURRENT_DIR, 'apps')
+
+# ==============
+# = PYTHONPATH =
+# ==============
+
+if '/utils' not in ' '.join(sys.path):
+    sys.path.append(UTILS_ROOT)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+BROKER_HOST = "localhost"
+#BROKER_PORT = 5672
+#BROKER_USER = "guest"
+#BROKER_PASSWORD = "guest"
+#BROKER_VHOST = "/"
+
+# Django settings for lavender project.
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -34,7 +53,7 @@ DATABASES = {
 }
 
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Los_Angeles'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
