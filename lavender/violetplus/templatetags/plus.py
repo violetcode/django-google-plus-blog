@@ -3,19 +3,20 @@ import httplib2
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from datetime import datetime
-import re
+import os, re
 
 from django import template
 
 register = template.Library()
 
-USER_ID = "100389519879266040369"
-API_KEY = "AIzaSyB6p8zKEB_UVBG6wxUlusIY0CFikZ26Wwk"
+USER_ID = os.environ['USER_ID']
+API_KEY = os.environ['API_KEY']
 
 http = httplib2.Http()
 service = build('plus', 'v1', developerKey=API_KEY, http=http) 
 
 def modify_activity(activity):
+	published = activity["published"]
 	date_published = activity["published"].strip(".000Z")
 	activity["published"] = datetime.strptime(date_published, "%Y-%m-%dT%H:%M:%S")
 	content = activity["object"]["content"]
